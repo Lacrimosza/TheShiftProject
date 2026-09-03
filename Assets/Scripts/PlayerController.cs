@@ -5,7 +5,10 @@ public class PlayerController : MonoBehaviour
 {
     CharacterController controller;
     Vector3 velocity;
+    bool exhausted;
+    public float stamina = 100f;
 
+    public float maxStamina = 100f;
     public Camera playerCam;
     public bool isGrounded;
     public bool crouching;
@@ -87,14 +90,50 @@ public class PlayerController : MonoBehaviour
 
         #region Sprint (Koşma)
 
-        if(Input.GetKey(KeyCode.LeftShift) && crouching == false)
+        if (Input.GetKey(KeyCode.LeftShift) && crouching == false && exhausted == false)
         {
             speed = 7.5f;
+            StaminaLoss();
         }
-        if(Input.GetKeyUp(KeyCode.LeftShift) && crouching == false)
+        else if(stamina != maxStamina)
         {
             speed = 5.0f;
+            StaminaGain();
         }
+        if (stamina >= 25)
+        {
+            exhausted = false;
+        }
+           
+        
         #endregion
     }
+
+    #region Stamina
+    void StaminaLoss()
+    {
+        if(stamina >= 0 && exhausted == false)
+        {
+            stamina -= Time.deltaTime * 25;
+            if(stamina <= 0)
+            {
+                stamina = 0;
+                speed = 5.0f;
+                exhausted = true;
+            }
+        }
+    }
+    void StaminaGain()
+    {
+        if(stamina <= maxStamina)
+        { 
+            stamina += Time.deltaTime * 10;
+            if(stamina >= maxStamina)
+            {
+                stamina = 100f;
+            }
+        }
+    }
+    #endregion
+
 }
