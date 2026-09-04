@@ -90,12 +90,12 @@ public class PlayerController : MonoBehaviour
 
         #region Sprint (Koşma)
 
-        if (Input.GetKey(KeyCode.LeftShift) && crouching == false && exhausted == false)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && crouching == false && exhausted == false)
         {
             speed = 7.5f;
             StaminaLoss();
         }
-        else if(stamina != maxStamina)
+        else if(stamina != maxStamina && crouching == false || Input.GetKeyUp(KeyCode.LeftShift))
         {
             speed = 5.0f;
             StaminaGain();
