@@ -19,8 +19,8 @@ public class PlayerController : MonoBehaviour
     public float gravity;
     public LayerMask mask;
 
-    public float originalHeight = 1.6f;
-    public float crouchHeight = 1.0f;
+    public float originalHeight = 1.2f;
+    public float crouchHeight = 0.8f;
 
     private void Start()
     {
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.LeftControl))
         {
             controller.height = crouchHeight;
-            speed = 2.5f;
+            speed = 1f;
             crouching = true;
             playerCam.transform.localPosition = new Vector3( //Kamera lokasyonu, eğilmeye göre düşürülüyor.
                 playerCam.transform.localPosition.x, 
@@ -78,11 +78,11 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.LeftControl))
         {
             controller.height = originalHeight;
-            speed = 5.0f;
+            speed = 3.0f;
             crouching = false;
             playerCam.transform.localPosition = new Vector3( //Kamera lokasyonu, kalkmaya göre yükseliyor.
                 playerCam.transform.localPosition.x,
-                0.8f,
+                0.6f,
                 playerCam.transform.localPosition.z);
         }
 
@@ -92,12 +92,12 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && crouching == false && exhausted == false)
         {
-            speed = 7.5f;
+            speed = 4.0f;
             StaminaLoss();
         }
         else if(stamina != maxStamina && crouching == false || Input.GetKeyUp(KeyCode.LeftShift))
         {
-            speed = 5.0f;
+            speed = 3.0f;
             StaminaGain();
         }
         if (stamina >= 25)
@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
             if(stamina <= 0)
             {
                 stamina = 0;
-                speed = 5.0f;
+                speed = 3.0f;
                 exhausted = true;
             }
         }
