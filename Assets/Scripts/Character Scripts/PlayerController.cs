@@ -19,8 +19,8 @@ public class PlayerController : MonoBehaviour
     public float gravity;
     public LayerMask mask;
 
-    public float originalHeight = 1.2f;
-    public float crouchHeight = 0.8f;
+    public float originalHeight = 1.6f;
+    public float crouchHeight = 1.2f;
 
     private void Start()
     {
@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
             crouching = false;
             playerCam.transform.localPosition = new Vector3( //Kamera lokasyonu, kalkmaya göre yükseliyor.
                 playerCam.transform.localPosition.x,
-                0.6f,
+                0.7f,
                 playerCam.transform.localPosition.z);
         }
 
@@ -90,9 +90,10 @@ public class PlayerController : MonoBehaviour
 
         #region Sprint (Koşma)
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && crouching == false && exhausted == false)
+        if (Input.GetKey(KeyCode.LeftShift) && crouching == false && exhausted == false)
         {
-            speed = 4.0f;
+            speed = 10.0f;
+            Debug.Log("Koştuk");
             StaminaLoss();
         }
         else if(stamina != maxStamina && crouching == false || Input.GetKeyUp(KeyCode.LeftShift))

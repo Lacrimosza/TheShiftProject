@@ -3150,7 +3150,6 @@ Transform:
   - {fileID: 832575519}
   - {fileID: 747352246}
   - {fileID: 1099142499}
-  - {fileID: 1029393601}
   - {fileID: 2015468184}
   - {fileID: 1037820643}
   - {fileID: 131675860}
@@ -5416,7 +5415,7 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1.2
+  m_Height: 1.6
   m_Radius: 0.4
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -5432,13 +5431,13 @@ Transform:
   m_GameObject: {fileID: 1029393599}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.25, y: 4.04, z: -4.8123703}
+  m_LocalPosition: {x: -6.35602, y: 2.54, z: -1.3842702}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2052117606}
   - {fileID: 2057886412}
-  m_Father: {fileID: 498012146}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1029393602
 MonoBehaviour:
@@ -5465,8 +5464,8 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 64
-  originalHeight: 1.2
-  crouchHeight: 0.8
+  originalHeight: 1.6
+  crouchHeight: 1.2
 --- !u!114 &1029393603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12815,7 +12814,7 @@ Transform:
   m_GameObject: {fileID: 2052117605}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14135,5 +14134,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 410087041}
   - {fileID: 498012146}
+  - {fileID: 1029393601}
   - {fileID: 1510286680}
   - {fileID: 1123652882}

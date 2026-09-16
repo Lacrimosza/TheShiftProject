@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class OpenCloseDoor : MonoBehaviour
+public class OpenCloseDoor : MonoBehaviour , IInteractable
 {
     [SerializeField] float openAngle = -90f;
     [SerializeField] float openSpeed = 2f;
@@ -19,7 +19,7 @@ public class OpenCloseDoor : MonoBehaviour
     }
 
 
-    void Update()
+    public void Interact()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
